@@ -8,13 +8,13 @@ all: $(TARGET)
 
 %.o: %.c
 	@rm -f $@
-	$(CROSS_COMPILE) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 version:
 	bash gen_version.sh > version.h
 
 $(TARGET): version $(OBJS)
-	$(CROSS_COMPILE) $(OBJS) $(LDFLAGS) -o $@
+	$(CC) $(OBJS) $(LDFLAGS) -o $@
 	$(STRIP) $(TARGET)
 
 clean:
