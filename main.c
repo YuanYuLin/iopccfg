@@ -48,6 +48,7 @@ static void show_usage()
     printf("-v: show vale of element\n");
     printf("example : \n");
     printf("    utils -f vmcfg.json -s\n");
+    printf("    utils -f vmcfg.json -k type -v\n");
 }
 
 int main(int argc, char** argv)
@@ -69,7 +70,7 @@ int main(int argc, char** argv)
 
     switch(func) {
     case SHOW_JSON:
-//        show_json(json_obj);
+        show_json(json_obj);
     break;
     case SHOW_ARRAY_LEN:
 //        show_json_array_len(json_key, json_obj);
