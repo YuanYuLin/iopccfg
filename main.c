@@ -11,7 +11,7 @@ unsigned long parse_paramegers(int argc, char** argv, char* json_file, char* jso
     unsigned long func = 0x0;
     int cmd_opt = 0;
     while(1) {
-        cmd_opt = getopt(argc, argv, "f:k:alvt");
+        cmd_opt = getopt(argc, argv, "f:k:alvts");
 
         if(cmd_opt == -1) {
             return func;
@@ -30,7 +30,7 @@ unsigned long parse_paramegers(int argc, char** argv, char* json_file, char* jso
         case 'l': // show json array len
             func |= SHOW_ARRAY_LEN;
         break;
-        caes 's': // show json array string
+        case 's': // show json array string
             func |= SHOW_ARRAY_STRING;
         break;
         case 'v': // show json value
@@ -109,6 +109,7 @@ int main(int argc, char** argv)
         default:
             isError = 1;
         break;
+        }
     break;
     case SHOW_ARRAY_LEN:
         get_json_obj_by_query_obj(&query_json_obj, json_obj);
